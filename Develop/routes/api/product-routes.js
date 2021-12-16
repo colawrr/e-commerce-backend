@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
       include: [
         {
           model: Category, 
-          attributes: ['id', 'product_name', 'price', 'stock', 'category_id']
+          attributes: ['category_name']
         },
         {
           model: Tag, 
@@ -39,7 +39,7 @@ router.get('/:id', (req, res) => {
     include: [
       {
         model: Category,
-        attributes: ['id', 'product_name', 'price', 'stock', 'category_id']
+        attributes: ['category_name']
       },
       {
         model: Tag,
@@ -73,7 +73,7 @@ router.post('/', (req, res) => {
   //Product.create(req.body)
   Product.create({
     product_name: req.body.product_name,
-    price = req.body.price,
+    price: req.body.price,
     stock: req.body.stock,
     category_id: req.body.category_id,
     tagIds: req.body.tag_id
